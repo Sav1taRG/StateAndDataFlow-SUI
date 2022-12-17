@@ -15,15 +15,12 @@ struct RegisterView: View {
     var body: some View {
         VStack {
             HStack {
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
                 TextField("Enter your name...", text: $name)
                     .multilineTextAlignment(.center)
+                    .padding(.leading, 35)
                 Text("\(name.count)")
-                    .padding(.trailing)
                     .foregroundColor(switchCounterColor())
+                    .padding(.trailing)
             }
             Button(action: registerUser) {
                 HStack {
