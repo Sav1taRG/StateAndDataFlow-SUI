@@ -22,10 +22,9 @@ struct ContentView: View {
             Spacer()
             
             ButtonView(timer: timer)
+            Spacer()
             
             LogoutButtonView(storageManager: storageManager)
-            
-            Spacer()
         }
     }
 }
@@ -68,7 +67,7 @@ struct LogoutButtonView: View {
                 .foregroundColor(.white)
         }
         .frame(width: 200, height: 60)
-        .background(.red)
+        .background(.blue)
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
@@ -77,9 +76,6 @@ struct LogoutButtonView: View {
     }
    
     private func logout() {
-//        userManager.name = ""
-//        userManager.isRegister.toggle()
-//
         StorageManager().name = ""
         StorageManager().isRegister.toggle()
     }
