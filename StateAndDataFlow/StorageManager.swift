@@ -9,6 +9,6 @@ import Foundation
 import SwiftUI
 
 class StorageManager: ObservableObject {
-    @AppStorage("name") var name: String = "User"
-    @AppStorage("isRegister") var isRegister: Bool = false
+    @AppStorage(wrappedValue: "User", "name") var name: String
+    @AppStorage(wrappedValue: false, "isRegister") var isRegister: Bool
 }
