@@ -9,19 +9,30 @@ import SwiftUI
 
 struct RegisterView: View {
     @State private var name = ""
+    @State private var counterColor = Color.red
     @EnvironmentObject private var storageManager: StorageManager
     
     var body: some View {
         VStack {
-            TextField("Enter your name...", text: $name)
-                .multilineTextAlignment(.center)
+            HStack {
+                TextField("Enter your name...", text: $name)
+                    .multilineTextAlignment(.center)
+                Text("\(name.count)")
+                    .padding(.trailing)
+                    .foregroundColor(switchCounterColor())
+            }
             Button(action: registerUser) {
                 HStack {
                     Image(systemName: "checkmark.circle")
                     Text("OK")
                 }
+                .disabled(name.count < 3)
             }
         }
+    }
+    
+    private func switchCounterColor() -> Color {
+        name.count < 3 ? Color.red : Color.green
     }
     
     private func registerUser() {
