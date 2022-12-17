@@ -23,6 +23,8 @@ struct ContentView: View {
             
             ButtonView(timer: timer)
             
+            LogoutButtonView(user: userManager)
+            
             Spacer()
         }
     }
@@ -55,4 +57,26 @@ struct ButtonView: View {
     }
 }
 
+struct LogoutButtonView: View {
+    @ObservedObject var user: UserManager
+    
+    var body: some View {
+        Button(action: logout) {
+            Text("Logout")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+        }
+        .frame(width: 200, height: 60)
+        .background(.red)
+        .cornerRadius(20)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(.black, lineWidth: 4)
+        )
+    }
+}
 
+private func logout() {
+    
+}
